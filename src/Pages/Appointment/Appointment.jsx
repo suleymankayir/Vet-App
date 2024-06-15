@@ -79,7 +79,7 @@ function Appointment() {
     console.log(newAppointment);
   };
 
-  // update işlemleri
+
 
   const handleUpdateBtn = (e) => {
     const index = e.target.id;
@@ -128,7 +128,7 @@ function Appointment() {
       );
   };
 
-  // delete işlemleri
+  
 
   const handleDeleteAppointment = (e) => {
     const id = e.target.id;
@@ -140,7 +140,7 @@ function Appointment() {
       .then(() => setUpdate(false));
   };
 
-  // doktora id-date göre randevu arama
+  
   const [filteredDoctorId, setFilteredDoctorId] = useState([]);
   const [doctorId, setDoctorId] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -174,7 +174,7 @@ function Appointment() {
       .then(() => setFinishDate(""));
   };
 
-  // hayvan id-date göre randevu arama
+ 
   const [filteredAnimalId, setFilteredAnimalId] = useState([]);
   const [animalId, setAnimalId] = useState("");
   const [animalStartDate, setAnimalStartDate] = useState("");
@@ -208,20 +208,20 @@ function Appointment() {
 
     console.log(filteredAnimalId);
   };
-  // resetleme btn
+
   const handleResetBtn = () => {
     window.location.reload();
   };
   return (
-    <div>
-      <h1 className="text-center text-white mt-2 text-2xl">Randevu Yönetimi</h1>
+    <div className="bg-stone-500">
+      <h1 className="text-center text-white mt-5 text-2xl">Appointment Management</h1>
 
       <div>
-        <div className="flex text-right justify-end mr-24 mt-2 gap-1">
-          <h2 className="text-white mr-1">Doktor-Tarih</h2>
-          <select name="" value={doctorId} onChange={handleDoctorIDChange}>
+        <div className="flex text-right justify-center mt-10 mt-2 gap-1">
+         
+          <select className="bg-black text-white rounded-lg p-1" name="" value={doctorId} onChange={handleDoctorIDChange}>
             <option value="" disabled>
-              Doktor ID
+              Doctor ID
             </option>
             {doctor.map((doc, index) => (
               <option key={doc.id} value={doc.id}>
@@ -229,29 +229,29 @@ function Appointment() {
               </option>
             ))}
           </select>
-          <input
+          <input className="rounded-lg p-1"
             type="date"
             value={startDate}
             onChange={handleStartDateChange}
           />
-          <input
+          <input className="rounded-lg p-1"
             type="date"
             value={finishDate}
             onChange={handleFinishDateChange}
           />
           <button
             onClick={handleDoctorSearchBtn}
-            className="bg-yellow-400 rounded-md px-2 "
+            className="bg-gray-600 rounded-md px-2 "
           >
-            Ara
+            Search
           </button>
         </div>
-        <div className="flex text-right justify-end mr-24 mt-2 gap-1">
-          <h2 className="text-white mr-1">Hayvan-Tarih</h2>
+        <div className="flex text-right justify-center mt-5 mt-2 gap-1">
+         
 
-          <select name="" value={animalId} onChange={handleAnimalIDChange}>
+          <select  className="bg-black text-white rounded-lg p-1" name="" value={animalId} onChange={handleAnimalIDChange}>
             <option value="" disabled>
-              Hayvan ID
+              Animal ID
             </option>
             {animal.map((ani, index) => (
               <option key={ani.id} value={ani.id}>
@@ -259,44 +259,44 @@ function Appointment() {
               </option>
             ))}
           </select>
-          <input
+          <input className="rounded-lg p-1"
             type="date"
             value={animalStartDate}
             onChange={handleStartDateAnimalChange}
           />
-          <input
+          <input className="rounded-lg p-1"
             type="date"
             value={animalFinishDate}
             onChange={handleFinishDateAnimalChange}
           />
           <button
             onClick={handleAnimalSearchBtn}
-            className="bg-yellow-400 rounded-md px-2 "
+            className="bg-gray-600 rounded-md px-2 "
           >
-            Ara
+            Search
           </button>
         </div>
-        <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+        <div className="flex text-right justify-end mr-28 mt-8 gap-1">
           <button
             onClick={handleResetBtn}
-            className="bg-lime-300 rounded-md px-2 "
+            className="bg-gray-300 rounded-md px-2 py-1 "
           >
-            Tüm Randevuları Göster
+            Show All Appointments
           </button>
         </div>
       </div>
 
       <div className="  backdrop-blur-[6px] bg-white/15 flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-4">
         <div className="ml-2 mb-2">
-          <div className="px-12  backdrop-blu-[px] bg-white/10 rounded-md pb-3 ">
-            <h2 className="mt-2 text-center text-white text-lg mb-1">
-              Randevu Ekle
+          <div className="px-12  backdrop-blu-[px] bg-black/30  rounded-md pb-3 ">
+            <h2 className="mt-2 text-center text-white text-lg mb-1 py-2">
+              Appointment Add
             </h2>
             <div className="flex flex-col gap-2 w-44 items-center">
               <label htmlFor="">
-                <h2 className="text-white">Tarih</h2>
+                <h2 className="text-white mb-1">Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1 w-12/12"
+                  className="rounded-lg px-2 py-1 w-12/12"
                   type="datetime-local"
                   name="appointmentDate"
                   value={newAppointment.appointmentDate}
@@ -305,15 +305,15 @@ function Appointment() {
                 />
               </label>
               <div className=" w-12/12">
-                <h2 className="text-white">Doktor </h2>
-                <select
+                <h2 className="text-white mb-1">Doctor </h2>
+                <select 
                   name="doctor"
-                  className="rounded-sm px-8 py-1"
+                  className="rounded-lg px-8 py-1"
                   onChange={handleNewDoctorSelectChange}
                   value={newAppointment?.doctor?.id || ""}
                 >
                   <option value="" disabled>
-                    Doktor Seç
+                    Choose Doc.
                   </option>
                   {doctor.map((doc, index) => (
                     <option value={doc.id} key={doc.id} id={index}>
@@ -323,14 +323,14 @@ function Appointment() {
                 </select>
               </div>
               <div className=" w-12/12">
-                <h2 className="text-white">Hayvan </h2>
+                <h2 className="text-white mb-1">Animal </h2>
                 <select
                   name="animal"
-                  className="rounded-sm px-8 py-1"
+                  className="rounded-lg px-8 py-1"
                   value={newAppointment?.animal?.id || ""}
                   onChange={handleNewAnimalSelectChange}
                 >
-                  <option value="">Hayvan Seç</option>
+                  <option value="">Choose Ani.</option>
                   {animal.map((ani, index) => (
                     <option value={ani.id} key={ani.id} id={index}>
                       {ani.name}
@@ -339,43 +339,43 @@ function Appointment() {
                 </select>
               </div>
               <button
-                className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 mt-3 p-1 bg-gray-300 gap-2 rounded-lg"
                 onClick={handleNewAppointment}
               >
                 <div>
                   <IoMdAdd />
                 </div>
-                <div>Ekle</div>
+                <div>Add</div>
               </button>
             </div>
           </div>
-          <div className="px-12  backdrop-blu-[px] bg-white/10 rounded-md pb-3 ">
-            <h2 className="mt-2 text-center text-white text-lg mb-1">
-              Randevu Güncelle
+          <div className="px-12  backdrop-blu-[px] bg-black/30 rounded-md pb-3 ">
+            <h2 className="my-3 py-2 text-center text-white text-lg mb-1">
+              Appointment Update
             </h2>
-            <div className="flex flex-col gap-2 w-44 items-center">
+            <div className="flex flex-col gap-2 w-48 items-center">
               <label htmlFor="">
-                <h2 className="text-white">Tarih</h2>
+                <h2 className="text-white mb-1">Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1 w-12/12"
+                  className="rounded-lg px-2 py-1 w-12/12"
                   type="datetime-local"
                   name="appointmentDate"
-                  placeholder="Tarih"
+                  placeholder="Date"
                   value={updateAppointment.appointmentDate}
                   onChange={handleUpdateDateChange}
                 />
               </label>
               <div className=" w-12/12">
-                <h2 className="text-white">Doktor </h2>
+                <h2 className="text-white">Doctor </h2>
                 <select
                   name="doctor"
-                  className="rounded-sm px-8 py-1
+                  className="rounded-lg px-8 py-1
                 "
                   value={updateAppointment.doctor.id || ""}
                   onChange={handleUpdateDoctorSelectChange}
                 >
                   <option disabled value="">
-                    Doktor Seç
+                    Choose Doc.
                   </option>
                   {doctor.map((doc, index) => (
                     <option key={doc.id} value={doc.id}>
@@ -385,14 +385,14 @@ function Appointment() {
                 </select>
               </div>
               <div className=" w-12/12">
-                <h2 className="text-white">Hayvan </h2>
+                <h2 className="text-white mb-1">Animal </h2>
                 <select
                   value={updateAppointment.animal.id || ""}
                   name="doctor"
-                  className="rounded-sm px-8 py-1"
+                  className="rounded-lg px-8 py-1"
                   onChange={handleUpdateAnimalSelectChange}
                 >
-                  <option value="">Hayvan Seç</option>
+                  <option value="">Choose Ani.</option>
                   {animal.map((ani, index) => (
                     <option value={ani.id} key={ani.id}>
                       {ani.name}
@@ -402,12 +402,12 @@ function Appointment() {
               </div>
               <button
                 onClick={handleUpdateAppointment}
-                className="flex justify-center items-center w-24 p-1 bg-blue-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-50 p-1 mt-3 bg-green-400 gap-2 rounded-lg"
               >
                 <div>
                   <MdModeEdit />
                 </div>
-                <div>Güncelle</div>
+                <div className="px-2">Update</div>
               </button>
             </div>
           </div>
@@ -418,13 +418,13 @@ function Appointment() {
             <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
               <tr className="">
                 <th className=" border w-1/12">ID</th>
-                <th className=" border w-2/12">Doktor</th>
-                <th className=" border w-[8rem]">Randevu Tarih</th>
-                <th className="border w-2/12">Hayvan</th>
-                <th className="border w-2/12">Müşteri</th>
-                <th className="border w-2/12">Müşteri Telefon</th>
-                <th className="border w-2/12">Doktor Telefon</th>
-                <th className="border w-3/12">Sil / Düzenle</th>
+                <th className=" border w-2/12">Doctor</th>
+                <th className=" border w-[8rem]">Date</th>
+                <th className="border w-2/12">Animal</th>
+                <th className="border w-2/12">Customer</th>
+                <th className="border w-2/12">Cus. Telefon</th>
+                <th className="border w-2/12">Doc. Telefon</th>
+                <th className="border w-3/12">Delete / Edit</th>
               </tr>
             </thead>
             {appointment && !isDoctorSearch && !isAnimalSearch && (
@@ -455,7 +455,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateBtn}
@@ -463,7 +463,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>
@@ -499,7 +499,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateBtn}
@@ -507,7 +507,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>
@@ -543,7 +543,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateBtn}
@@ -551,7 +551,7 @@ function Appointment() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>

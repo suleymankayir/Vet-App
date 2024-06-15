@@ -74,7 +74,6 @@ function Vaccine() {
     console.log(newVaccine);
   };
 
-  // delete işlemleri
 
   const handleDeleteVaccine = (e) => {
     const id = e.target.id;
@@ -91,7 +90,6 @@ function Vaccine() {
       });
   };
 
-  // filtreleme işlemleri
   const [animalId, setAnimalId] = useState("");
   const [filterAnimalID, setFilterAnimalID] = useState([]);
   const [isAnimalIDSearch, setIsAnimalIDSearch] = useState(false);
@@ -147,30 +145,30 @@ function Vaccine() {
   };
   return (
     <div>
-      <h1 className="text-white text-center text-2xl mt-2">Aşı Yönetimi</h1>
+      <h1 className="text-white text-center text-2xl mt-4 mb-8">Vaccine Management</h1>
       <div>
         {alert1 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-green-500 text-white text-xl">
-            Başarıyla Eklendi
+            Success!
           </h1>
         )}
       </div>
       <div>
         {alert2 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-red-500 text-white text-xl">
-            Silme Başarılı!
+            Deleted!
           </h1>
         )}
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
-        <label htmlFor="" className="flex justify-center items-center gap-2">
-          <h2 className="text-white text-xl">Hayvan ID</h2>
-          <select
+      <div className="flex text-right justify-center mb-5 gap-3">
+        <label htmlFor="" className="flex justify-center items-center gap-5">
+          <h2 className="text-white text-xl">Animal ID</h2>
+          <select 
             value={animalId}
-            className="w-12"
+            className="w-20 rounded-lg p-1"
             onChange={handleAnimalIdChange}
           >
-            <option disabled>Hayvan ID</option>
+            <option disabled>Animal ID</option>
             {animal.map((ani, index) => (
               <option value={ani.id} key={ani.id}>
                 {ani.id}
@@ -180,18 +178,18 @@ function Vaccine() {
         </label>
         <button
           onClick={handleAnimalIdBtn}
-          className="bg-yellow-400 rounded-md px-2 "
+          className="bg-gray-600 text-white rounded-md px-2 "
         >
-          Ara
+          Search
         </button>
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+      <div className="flex text-right justify-center mb-5 gap-3">
         <label htmlFor="" className="flex justify-center items-center gap-2">
-          <h2 className="text-white text-xl">Aşı Tarih Aralığı</h2>
+          <h2 className="text-white text-xl">Date</h2>
           <input
             type="date"
             value={vacStartDate}
-            className="py-1 rounded-md pl-2"
+            className="py-1 rounded-md px-2"
             onChange={handleStartDateChange}
           />
         </label>
@@ -205,81 +203,81 @@ function Vaccine() {
         </label>
         <button
           onClick={handleDateBtn}
-          className="bg-yellow-400 rounded-md px-2 "
+          className="bg-gray-600 text-white rounded-md px-2 "
         >
-          Ara
+          Search
         </button>
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+      <div className="flex text-right justify-end mr-28 mt-2 gap-1">
         <button
           onClick={handleResetBtn}
-          className="bg-lime-300 rounded-md px-2 "
+          className="bg-gray-300 rounded-md px-2 "
         >
-          Tüm Aşıları Göster
+          Show All
         </button>
       </div>
 
       <div className="  backdrop-blur-[6px] bg-white/15 flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-4">
         <div className="ml-2 mb-2">
-          <div className="px-12  backdrop-blu-[px] bg-white/10 rounded-md pb-3 ">
+          <div className="px-12  backdrop-blu-[px] bg-black/30 rounded-md pb-3 ">
             <h2 className="mt-2 text-center text-white text-lg mb-1">
-              Aşı Ekle
+              Add Vaccine
             </h2>
-            <div className="flex flex-col gap-2 w-44 items-center">
+            <div className="flex flex-col gap-2 w-44 items-start mr-5">
               <label htmlFor="">
-                <h2 className="text-white">Aşı Adı</h2>
+                <h2 className="text-white">Name</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="name"
                   value={newVaccine.name}
-                  placeholder="Aşı Adı"
+                  placeholder="Vaccine Name"
                   onChange={handleNewVaccineInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Aşı Kodu</h2>
+                <h2 className="text-white">Vaccine Code</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="code"
                   value={newVaccine.code}
-                  placeholder="Aşı Kodu"
+                  placeholder="Code"
                   onChange={handleNewVaccineInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Koruma Başlangıç Tarihi</h2>
+                <h2 className="text-white">Start Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="date"
                   name="protectionStartDate"
                   value={newVaccine.protectionStartDate}
-                  placeholder="Koruma"
+                  placeholder="Vaccine"
                   onChange={handleNewVaccineInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Koruma Bitiş Tarihi</h2>
+                <h2 className="text-white">Finish Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="date"
                   name="protectionFinishDate"
                   value={newVaccine.protectionFinishDate}
-                  placeholder="koruma bitiş"
+                  placeholder="Vaccine Finish"
                   onChange={handleNewVaccineInputChange}
                 />
               </label>
               <div className=" w-12/12">
-                <h2 className="text-white">Hayvan</h2>
+                <h2 className="text-white">Animal</h2>
                 <select
                   name="animalWithoutCustomer"
-                  className="rounded-sm px-8 py-1"
+                  className="rounded-lg px-8 py-1"
                   onChange={handleNewAnimalSelectChange}
                   value={newVaccine?.animalWithoutCustomer.id || ""}
                 >
                   <option value="" disabled>
-                    Hayvan Seç
+                    Choose Ani.
                   </option>
                   {animal.map((ani, index) => (
                     <option value={ani.id} key={ani.id} id={index}>
@@ -290,13 +288,13 @@ function Vaccine() {
               </div>
 
               <button
-                className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 ml-10 mt-3 p-1 bg-gray-300 gap-2 rounded-lg"
                 onClick={handleNewVaccine}
               >
                 <div>
                   <IoMdAdd />
                 </div>
-                <div>Ekle</div>
+                <div>Add</div>
               </button>
             </div>
           </div>
@@ -306,13 +304,12 @@ function Vaccine() {
           <table className=" rounded-lg  py-5 bg-slate-50  w-11/12 mx-auto mt-8 table-fixed overflow-hidden">
             <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
               <tr className="">
-                <th className=" border w-2/12">Aşı Adı</th>
-                <th className=" border w-2/12">Aşı Kodu</th>
-                <th className=" border w-2/12">Koruma Başlangıç Tarihi</th>
-                <th className=" border w-2/12">Koruma Bitiş Tarihi</th>
-                <th className=" border w-2/12">Hayvan Adı</th>
-
-                <th className="border w-2/12">Sil </th>
+                <th className=" border w-2/12">Vaccine Name</th>
+                <th className=" border w-2/12"> Code</th>
+                <th className=" border w-2/12">Protection Start Date</th>
+                <th className=" border w-2/12">Protection Finish Date</th>
+                <th className=" border w-2/12">Animal Name</th>
+                <th className="border w-2/12">Delete</th>
               </tr>
             </thead>
             {vaccine && !isAnimalIDSearch && !isDate && (
@@ -336,7 +333,7 @@ function Vaccine() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                       </td>
                     </tr>
@@ -365,7 +362,7 @@ function Vaccine() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                       </td>
                     </tr>
@@ -394,7 +391,7 @@ function Vaccine() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                       </td>
                     </tr>

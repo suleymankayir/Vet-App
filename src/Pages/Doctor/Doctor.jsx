@@ -175,25 +175,25 @@ function Doctor() {
 
   return (
     <div>
-      <h1 className="text-white text-2xl text-center mt-4">Doktorlar</h1>
+      <h1 className="text-white text-2xl text-center mt-4">Doctors</h1>
       <div>
         {alert1 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-24 left-6 bg-green-500 text-white text-xl">
-            Başarıyla Eklendi
+            Success!
           </h1>
         )}
       </div>
       <div>
         {alert2 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-24 left-6 bg-red-500 text-white text-xl">
-            Silme Başarılı!
+            Deleted!
           </h1>
         )}
       </div>
       <div>
         {alert3 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-24 left-6 bg-blue-500 text-white text-xl">
-            Başarıyla Güncellendi
+            Updated!
           </h1>
         )}
       </div>
@@ -202,12 +202,12 @@ function Doctor() {
           <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
             <tr className="">
               <th className=" border w-12">ID</th>
-              <th className=" border w-2/12">İsim</th>
-              <th className="border w-2/12">E-posta</th>
-              <th className="border w-2/12">Telefon</th>
-              <th className="border w-2/12">Adres</th>
-              <th className="border w-2/12">Şehir</th>
-              <th className="border w-2/12">Sil / Düzenle</th>
+              <th className=" border w-2/12">Name</th>
+              <th className="border w-2/12">Email</th>
+              <th className="border w-2/12">Phone</th>
+              <th className="border w-2/12">Address</th>
+              <th className="border w-2/12">City</th>
+              <th className="border w-2/12">Delete / Edit</th>
             </tr>
           </thead>
           <tbody className="border h-14 font-light text-black  text-xl ">
@@ -230,7 +230,7 @@ function Doctor() {
                       className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                     >
                       <MdDelete />
-                      Sil
+                      Delete
                     </div>
                     <div
                       onClick={handleUpdateDoctorBtn}
@@ -238,7 +238,7 @@ function Doctor() {
                       className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                     >
                       <MdModeEdit />
-                      Düzenle
+                      Edit
                     </div>
                   </td>
                 </tr>
@@ -247,136 +247,136 @@ function Doctor() {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-evenly mt-4 py-3 w-10/12 mx-auto backdrop-blur-[6px] bg-white/15 rounded-md ">
+      <div className="flex justify-evenly mt-4 py-3 w-10/12 mx-auto backdrop-blur-[6px] bg-black/30 rounded-md ">
         <div className=" mt-2 py-2 px-2 rounded-lg  ">
-          <h2 className="text-center mb-1 text-white text-xl">Doktor Ekle</h2>
+          <h2 className="text-center mb-1 text-white text-xl">Add Doctor</h2>
           <div className=" flex flex-col gap-2 w-44 items-center">
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="name"
               value={newDoctor.name}
-              placeholder="Doktor Adı"
+              placeholder="Doctor Name"
               onChange={handleNewDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="phone"
               value={newDoctor.phone}
-              placeholder="Doktor Telefon"
+              placeholder="Phone"
               onChange={handleNewDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="email"
               value={newDoctor.email}
-              placeholder="Doktor E-mail"
+              placeholder="Email"
               onChange={handleNewDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="address"
               value={newDoctor.address}
-              placeholder="Doktor Adres"
+              placeholder="Address"
               onChange={handleNewDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="city"
-              newDoctor
+             
               value={newDoctor.city}
-              placeholder="Şehir"
+              placeholder="City"
               onChange={handleNewDoctorInputChange}
             />
             <button
               onClick={handleAddNewDoctor}
-              className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+              className="flex justify-center items-center w-24 mt-2 p-1 bg-gray-300 gap-2 rounded-lg"
             >
               <div>
                 <IoMdAdd />
               </div>
-              <div>Ekle</div>
+              <div>Add</div>
             </button>
           </div>
         </div>
         <div className="rounded-lg mt-2   py-2 px-2   ">
           <h2 className="text-center mb-1 text-white text-xl">
-            Doktor Güncelle
+            Update Doctor
           </h2>
           <div className="flex flex-col gap-2 w-44 items-center">
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="name"
               value={updateDoctor.name}
-              updateDoctor
-              placeholder="Doktor Adı"
+             
+              placeholder="Doctor Name"
               onChange={handleUpdateDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="phone"
               value={updateDoctor.phone}
-              placeholder="Doktor Telefon"
+              placeholder="Phone"
               onChange={handleUpdateDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="email"
               value={updateDoctor.email}
-              placeholder="Doktor E-mail"
+              placeholder="Email"
               onChange={handleUpdateDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="address"
               value={updateDoctor.address}
-              placeholder="Doktor Adres"
+              placeholder="Address"
               onChange={handleUpdateDoctorInputChange}
             />{" "}
             <input
-              className="rounded-sm px-1 py-1"
+              className="rounded-lg px-2 py-1"
               type="text"
               name="city"
-              newDoctor
+              
               value={updateDoctor.city}
-              placeholder="Şehir"
+              placeholder="City"
               onChange={handleUpdateDoctorInputChange}
             />
             <button
               onClick={handleUpdateDoctor}
-              className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+              className="flex justify-center items-center w-24 mt-2 p-1 bg-green-400 gap-2 rounded-lg"
             >
               <div>
                 <MdModeEdit />
               </div>
-              <div>Güncelle</div>
+              <div>Edit</div>
             </button>
           </div>
         </div>
       </div>
       <div>
-        <h1 className="text-white text-center text-2xl mt-5">
-          Müsait Gün Yönetimi
+        <h1 className="text-white text-center text-2xl mt-8">
+          Available Date Management
         </h1>
         <div>
           {alertDate1 && (
             <h1 className="w-56 text-center rounded-md py-3 absolute bottom-10 left-6 bg-green-500 text-white text-xl">
-              Başarıyla Eklendi
+              Success!
             </h1>
           )}
         </div>
         <div>
           {alertDate2 && (
             <h1 className="w-56 text-center rounded-md py-3 absolute bottom-10 left-6 bg-red-500 text-white text-xl">
-              Silme Başarılı!
+              Deleted!
             </h1>
           )}
         </div>
@@ -384,11 +384,11 @@ function Doctor() {
           <table className=" rounded-lg  py-5 bg-slate-50  w-11/12 mx-auto mt-8 table-fixed overflow-hidden">
             <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
               <tr className="">
-                <th className=" border w-2/12">İsim</th>
-                <th className="border w-2/12">Tarih</th>
-                <th className="border w-2/12">E-posta</th>
-                <th className="border w-2/12">Telefon</th>
-                <th className="border w-2/12">Sil</th>
+                <th className=" border w-2/12">Name</th>
+                <th className="border w-2/12">Date</th>
+                <th className="border w-2/12">Email</th>
+                <th className="border w-2/12">Phone</th>
+                <th className="border w-2/12">Delete</th>
               </tr>
             </thead>
             <tbody className="border h-14 font-light text-black  text-xl ">
@@ -409,7 +409,7 @@ function Doctor() {
                         className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                       >
                         <MdDelete />
-                        Sil
+                        Delete
                       </div>
                     </td>
                   </tr>
@@ -418,27 +418,27 @@ function Doctor() {
             </tbody>
           </table>
         </div>
-        <div className="backdrop-blur-[6px] bg-white/15 flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-4 ">
-          <div className="flex gap-3 backdrop-blur-[6px] bg-white/10 rounded-md items-center px-4 py-5">
-            <h1 className="text-white text-xl">Tarih Ekle</h1>
+        <div className="backdrop-blur-[6px] flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-8 ">
+          <div className="flex gap-8 backdrop-blur-[6px]  bg-black/30 rounded-md items-center px-4 py-5">
+            <h1 className="text-white text-xl">Date</h1>
             <div className="">
               <input
-                className="rounded-sm px-1 py-1"
+                className="rounded-lg px-2 py-1 mr-5"
                 type="date"
                 name="workDate"
                 value={newAvailableDate.workDate}
-                placeholder="Tarih"
+                placeholder="Date"
                 onChange={handleNewAvailableDateInputChange}
               />{" "}
-              <select
+              <select 
                 name="doctorId"
                 id="doctorSelect"
-                className="py-1 rounded-sm"
+                className="py-1 mr-5 rounded-lg px-2"
                 value={newAvailableDate.doctorId || ""}
                 onChange={handleDoctorSelectChange}
               >
                 <option value="" disabled>
-                  Doktor Seç
+                  Add Doctor
                 </option>
                 {doctor?.map((doc) => (
                   <option value={doc.id} key={doc.id}>
@@ -447,10 +447,10 @@ function Doctor() {
                 ))}
               </select>
               <button
-                className=" bg-green-500 rounded-md px-2 py-[6px] ml-1"
+                className=" bg-gray-300 rounded-md px-2 py-[6px] ml-1 font-bold"
                 onClick={handleNewAvailableDate}
               >
-                Tarih Ekle
+                Add Date
               </button>
             </div>
           </div>

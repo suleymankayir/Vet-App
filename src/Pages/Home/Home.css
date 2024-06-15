@@ -1,8 +1,5 @@
-.resim {
-    width: 100%;
-    height: 100vh;
-  
-    background-size: cover; /* Resmin boyutunu kapsayacak şekilde ayarla /
-    background-position: center;
-    / Resmi ortala */
-  }
+.image {
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+}

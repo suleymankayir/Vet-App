@@ -108,7 +108,7 @@ function Customer() {
       });
   };
 
-  // arama işlemleri
+
 
   const handleSearch = () => {
     axios
@@ -136,35 +136,35 @@ function Customer() {
   return (
     <div>
       <h1 className="text-center mt-6 text-[2rem] font-medium text-white ">
-        Müşteriler
+        Customers
       </h1>
       <div>
         {alert1 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-green-500 text-white text-xl">
-            Başarıyla Eklendi
+            Success!
           </h1>
         )}
       </div>
       <div>
         {alert2 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-red-500 text-white text-xl">
-            Silme Başarılı!
+            Deleted!
           </h1>
         )}
       </div>
       <div>
         {alert3 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-blue-500 text-white text-xl">
-            Başarıyla Güncellendi
+            Updated!
           </h1>
         )}
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
-        <label htmlFor="" className="flex justify-center items-center gap-2">
-          <h2 className="text-white text-xl">Müşteri Adı</h2>
+      <div className="flex text-right justify-center mt-8 gap-2">
+        <label htmlFor="" className="flex justify-center items-center">
+       
           <input
             type="text"
-            placeholder="Müşteri Adı"
+            placeholder="Customer Name"
             value={search}
             className="py-1 rounded-md pl-2"
             onChange={handleCustomerNameChange}
@@ -172,17 +172,17 @@ function Customer() {
         </label>
         <button
           onClick={handleSearch}
-          className="bg-yellow-400 rounded-md px-2 "
+          className="bg-gray-600 rounded-md px-4 "
         >
           Ara
         </button>
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+      <div className="flex text-right justify-end mr-28 mt-2">
         <button
           onClick={handleResetBtn}
-          className="bg-lime-300 rounded-md px-2 "
+          className="bg-gray-300 rounded-md px-2 "
         >
-          Tüm Müşterileri Göster
+          Show All Customers
         </button>
       </div>
 
@@ -191,9 +191,9 @@ function Customer() {
       backdrop-blur-[6px] bg-white/15 flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-4"
       >
         <div className="px-4 py-4">
-          <div className=" mt-2  backdrop-blur-[6px] bg-white/10 px-8 rounded-md pb-3">
-            <h2 className="text-center text-white text-xl py-1">
-              Müşteri Ekle
+          <div className=" mt-2  backdrop-blur-[6px] bg-black/30 px-8 rounded-md pb-3">
+            <h2 className="text-center text-white text-xl mb-2 py-1">
+              Add Customer
             </h2>
             <div className="flex flex-col gap-2 w-44 items-center">
               <input
@@ -201,7 +201,7 @@ function Customer() {
                 type="text"
                 name="name"
                 value={newCustomer.name}
-                placeholder="Müşteri Adı"
+                placeholder="Customer Name"
                 onChange={handleNewCustomerInputChange}
               />{" "}
               <input
@@ -209,7 +209,7 @@ function Customer() {
                 type="text"
                 name="phone"
                 value={newCustomer.phone}
-                placeholder="Müşteri Telefon"
+                placeholder="Customer Phone"
                 onChange={handleNewCustomerInputChange}
               />{" "}
               <input
@@ -217,7 +217,7 @@ function Customer() {
                 type="text"
                 name="email"
                 value={newCustomer.email}
-                placeholder="Müşteri E-mail"
+                placeholder="Customer Email"
                 onChange={handleNewCustomerInputChange}
               />{" "}
               <input
@@ -225,7 +225,7 @@ function Customer() {
                 type="text"
                 name="address"
                 value={newCustomer.address}
-                placeholder="Müşteri Adres"
+                placeholder="Customer Address"
                 onChange={handleNewCustomerInputChange}
               />{" "}
               <input
@@ -233,23 +233,23 @@ function Customer() {
                 type="text"
                 name="city"
                 value={newCustomer.city}
-                placeholder="Şehir"
+                placeholder="City"
                 onChange={handleNewCustomerInputChange}
               />
               <button
                 onClick={handleAddNewCustomer}
-                className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 mt-2 p-1 bg-gray-300 gap-2 rounded-lg"
               >
                 <div>
                   <IoMdAdd />
                 </div>
-                <div>Ekle</div>
+                <div>Add</div>
               </button>
             </div>
           </div>
-          <div className="mt-2  backdrop-blur-[6px] bg-white/10 px-8 rounded-md pb-3">
-            <h2 className="text-xl text-white text-center py-1">
-              Müşteri Güncelle
+          <div className="mt-3 backdrop-blur-[6px] bg-black/30 px-8 rounded-md pb-3">
+            <h2 className="text-xl text-white text-center py-1 mb-2">
+              Update Customer
             </h2>
             <div className="flex flex-col gap-2 w-44 items-center">
               <input
@@ -257,7 +257,7 @@ function Customer() {
                 type="text"
                 name="name"
                 value={updateCustomer.name}
-                placeholder="Müşteri Adı"
+                placeholder="Customer Name"
                 onChange={handleUpdateCustomerInputChange}
               />{" "}
               <input
@@ -265,7 +265,7 @@ function Customer() {
                 type="text"
                 name="phone"
                 value={updateCustomer.phone}
-                placeholder="Müşteri Telefon"
+                placeholder="Customer Phone"
                 onChange={handleUpdateCustomerInputChange}
               />{" "}
               <input
@@ -273,7 +273,7 @@ function Customer() {
                 type="text"
                 name="email"
                 value={updateCustomer.email}
-                placeholder="Müşteri E-mail"
+                placeholder="Customer Email"
                 onChange={handleUpdateCustomerInputChange}
               />{" "}
               <input
@@ -281,7 +281,7 @@ function Customer() {
                 type="text"
                 name="address"
                 value={updateCustomer.address}
-                placeholder="Müşteri Adres"
+                placeholder="Customer Address"
                 onChange={handleUpdateCustomerInputChange}
               />{" "}
               <input
@@ -289,17 +289,17 @@ function Customer() {
                 type="text"
                 name="city"
                 value={updateCustomer.city}
-                placeholder="Şehir"
+                placeholder="City"
                 onChange={handleUpdateCustomerInputChange}
               />
               <button
                 onClick={handleUpdateCustomer}
-                className="flex justify-center items-center w-24 p-1 bg-blue-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 p-1 bg-green-400 mt-2 gap-2 rounded-lg"
               >
                 <div>
                   <MdModeEdit />
                 </div>
-                <div>Güncelle</div>
+                <div>Update</div>
               </button>
             </div>
           </div>
@@ -308,12 +308,12 @@ function Customer() {
         <table className="border h-14 font-extrabold text-slate-400  text-xl rounded-lg  py-5 bg-slate-50  w-9/12 mx-auto mt-8 table-fixed overflow-hidden ">
           <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
             <tr className="">
-              <th className=" border w-2/12">İsim</th>
-              <th className="border w-2/12">E-posta</th>
-              <th className="border w-2/12">Telefon</th>
-              <th className="border w-2/12">Adres</th>
-              <th className="border w-2/12">Şehir</th>
-              <th className="border w-2/12">Sil / Düzenle</th>
+              <th className=" border w-2/12">Name</th>
+              <th className="border w-2/12">E-mail</th>
+              <th className="border w-2/12">Phone</th>
+              <th className="border w-2/12">Address</th>
+              <th className="border w-2/12">City</th>
+              <th className="border w-2/12">Delete / Update</th>
             </tr>
           </thead>
           {customer && !isSearch && (
@@ -336,7 +336,7 @@ function Customer() {
                         className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                       >
                         <MdDelete />
-                        Sil
+                        Delete
                       </div>
                       <div
                         onClick={handleUpdateCustomerBtn}
@@ -344,7 +344,7 @@ function Customer() {
                         className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                       >
                         <MdModeEdit />
-                        Düzenle
+                        Edit
                       </div>
                     </td>
                   </tr>
@@ -372,7 +372,7 @@ function Customer() {
                         className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                       >
                         <MdDelete />
-                        Sil
+                        Delete
                       </div>
                       <div
                         onClick={handleUpdateCustomerBtn}
@@ -380,7 +380,7 @@ function Customer() {
                         className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                       >
                         <MdModeEdit />
-                        Düzenle
+                        Edit
                       </div>
                     </td>
                   </tr>

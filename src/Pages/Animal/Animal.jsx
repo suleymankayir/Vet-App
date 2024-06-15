@@ -100,7 +100,6 @@ function Animal() {
       });
   };
 
-  //  Update
 
   const handleUpdateAnimalBtn = (e) => {
     const index = e.target.id;
@@ -146,7 +145,6 @@ function Animal() {
     }));
   };
 
-  // hayvan adına göre arama
 
   const handleAnimalNameSearch = () => {
     axios
@@ -166,7 +164,6 @@ function Animal() {
     setIsAnimalNameSearch(false);
     console.log(animalSearch);
   };
-  // Müşteri adına göre arama
 
   const handleCustomerNameSearch = () => {
     axios
@@ -187,160 +184,160 @@ function Animal() {
     console.log(customerSearch);
   };
 
-  // resetleme butonu
   const handleResetBtn = () => {
     window.location.reload();
   };
 
   return (
     <div>
-      <h1 className="text-center text-white mt-2 text-2xl">Hayvan Yönetimi</h1>
+      <h1 className="text-center text-white my-5 text-2xl">Animal Management</h1>
       <div>
         {alert1 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-green-500 text-white text-xl">
-            Başarıyla Eklendi
+            Success!
           </h1>
         )}
       </div>
       <div>
         {alert2 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-red-500 text-white text-xl">
-            Silme Başarılı!
+            Deleted!
           </h1>
         )}
       </div>
       <div>
         {alert3 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-blue-500 text-white text-xl">
-            Başarıyla Güncellendi
+            Updated!
           </h1>
         )}
       </div>
       <div>
-        <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+        <div className="flex text-right justify-center mt-2 gap-3">
           <input
             type="text"
-            placeholder="Hayvan Adı"
-            className="py-1 rounded-md pl-2"
+            placeholder="Animal Name"
+            className="py-1 rounded-lg pl-2"
             value={animalSearch}
             onChange={handleAnimalNameChange}
           />
           <button
             onClick={handleAnimalNameSearch}
-            className="bg-yellow-400 rounded-md px-2 "
+            className="bg-gray-300 rounded-md px-4 "
           >
             Ara
           </button>
         </div>
       </div>
       <div>
-        <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+        <div className="flex text-right justify-center mt-4 gap-3">
           <input
             type="text"
-            placeholder="Müşteri Adı"
+            placeholder="Customer Name"
             value={customerSearch}
-            className="py-1 rounded-md pl-2"
+            className="py-1 rounded-lg pl-2"
             onChange={handleCustomerNameChange}
           />
           <button
             onClick={handleCustomerNameSearch}
-            className="bg-yellow-400 rounded-md px-2 "
+            className="bg-gray-300 rounded-md px-4 "
           >
             Ara
           </button>
         </div>
       </div>
-      <div className="flex text-right justify-end mr-24 mt-2 gap-1">
+      <div className="flex text-right justify-end mr-28 mt-4 gap-1">
         <button
           onClick={handleResetBtn}
-          className="bg-yellow-400 rounded-md px-2 "
+          className="bg-gray-300 rounded-md px-2 "
         >
-          Tüm Hayvanlar
+          Show All
         </button>
       </div>
 
       <div className="  backdrop-blur-[6px] bg-white/15 flex justify-evenly rounded-md w-10/12 mx-auto mb-8 mt-4">
         <div className="ml-2 mb-2">
-          <div className="px-12  backdrop-blu-[px] bg-white/10 rounded-md pb-3 ">
+          <div className="px-12  backdrop-blu-[px] bg-black/30 rounded-md pb-3 ">
             <h2 className="mt-2 text-center text-white text-lg mb-1">
-              Hayvan Ekle
+              Add Animal
             </h2>
             <div className="flex flex-col gap-2 w-44 items-center">
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Adı</h2>
+                <h2 className="text-white">Animal Name</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="name"
                   value={newAnimal.name}
-                  placeholder="Hayvan Adı"
+                  placeholder="Name"
                   onChange={handleNewAnimaInputChange}
                 />{" "}
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Türü</h2>
+                <h2 className="text-white">Species</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="species"
                   value={newAnimal.species}
-                  placeholder="Tür"
+                  placeholder="Species"
                   onChange={handleNewAnimaInputChange}
                 />{" "}
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Cinsi</h2>
+                <h2 className="text-white">Breed</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="breed"
                   value={newAnimal.breed}
-                  placeholder="Cins"
+                  placeholder="Breed"
                   onChange={handleNewAnimaInputChange}
                 />{" "}
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Cinsiyeti</h2>
+                <h2 className="text-white">Gender</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="gender"
                   value={newAnimal.gender}
-                  placeholder="Cinsiyet"
+                  placeholder="Gender"
                   onChange={handleNewAnimaInputChange}
                 />{" "}
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Renk</h2>
+                <h2 className="text-white">Color</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="colour"
                   value={newAnimal.colour}
-                  placeholder="Renk"
+                  placeholder="Color"
                   onChange={handleNewAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Doğum Tarihi</h2>
+                <h2 className="text-white">Birth Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-4 py-1"
                   type="date"
                   name="dateOfBirth"
                   value={newAnimal.dateOfBirth}
-                  placeholder="Doğum Tarihi"
+                  placeholder="Birth Date"
                   onChange={handleNewAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Müşteri</h2>
+                <h2 className="text-white">Customer</h2>
                 <select
+                className="rounded-lg px-4 py-1"
                   name="customer"
                   id="customerId"
                   value={newAnimal?.customer?.id || ""}
                   onChange={handleNewAnimalSelectChange}
                 >
-                  <option value="">Müşteri Seç</option>
+                  <option value="">Choose Cust.</option>
                   {customer?.map((cust, index) => (
                     <option value={cust.id} key={cust.id} id={index}>
                       {cust.name}
@@ -350,95 +347,96 @@ function Animal() {
               </label>
               <button
                 onClick={handleAddNewAnimal}
-                className="flex justify-center items-center w-24 p-1 bg-green-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 mt-3 p-1 bg-gray-300 gap-2 rounded-lg"
               >
                 <div>
                   <IoMdAdd />
                 </div>
-                <div>Ekle</div>
+                <div>Add</div>
               </button>
             </div>
           </div>
-          <div className="px-12  backdrop-blu-[px] bg-white/10 rounded-md pb-3 ">
+          <div className="px-12  backdrop-blu-[px] bg-black/30 rounded-md pb-3 mt-3 ">
             <h2 className="mt-2 text-center text-white text-lg mb-1">
-              Hayvan Güncelle
+              Update Animal
             </h2>
             <div className="flex flex-col gap-2 w-44 items-center">
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Adı</h2>
+                <h2 className="text-white">Animal Name</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="name"
                   value={updateAnimal.name}
-                  placeholder="Hayvan Adı"
+                  placeholder="Name"
                   onChange={handleUpdateAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Türü</h2>
+                <h2 className="text-white">Species</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="species"
                   value={updateAnimal.species}
-                  placeholder="Tür"
+                  placeholder="Species"
                   onChange={handleUpdateAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Cinsi</h2>
+                <h2 className="text-white">Breed</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="breed"
                   value={updateAnimal.breed}
-                  placeholder="Cins"
+                  placeholder="Breed"
                   onChange={handleUpdateAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Cinsiyeti</h2>
+                <h2 className="text-white">Gender</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="gender"
                   value={updateAnimal.gender}
-                  placeholder="Cinsiyet"
+                  placeholder="Gender"
                   onChange={handleUpdateAnimaInputChange}
                 />{" "}
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Renk</h2>
+                <h2 className="text-white">Color</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-2 py-1"
                   type="text"
                   name="colour"
                   value={updateAnimal.colour}
-                  placeholder="Renk"
+                  placeholder="Color"
                   onChange={handleUpdateAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Hayvan Doğum Tarihi</h2>
+                <h2 className="text-white">Birth Date</h2>
                 <input
-                  className="rounded-sm px-1 py-1"
+                  className="rounded-lg px-3 py-1"
                   type="date"
                   name="dateOfBirth"
                   value={updateAnimal.dateOfBirth}
-                  placeholder="Doğum Tarihi"
+                  placeholder="Birth Date"
                   onChange={handleUpdateAnimaInputChange}
                 />
               </label>
               <label htmlFor="">
-                <h2 className="text-white">Müşteri</h2>
+                <h2 className="text-white">Customer</h2>
                 <select
+                className="rounded-lg px-4 py-1"
                   name="customer"
                   id="customerId"
                   value={updateAnimal?.customer?.id || ""}
                   onChange={handleUpdateAnimalSelectChange}
                 >
-                  <option value="">Müşteri Seç</option>
+                  <option value="">Choose Cust.</option>
                   {customer?.map((cust, index) => (
                     <option value={cust.id} key={cust.id} id={index}>
                       {cust.name}
@@ -448,12 +446,12 @@ function Animal() {
               </label>{" "}
               <button
                 onClick={handleUpdateAnimal}
-                className="flex justify-center items-center w-24 p-1 bg-blue-400 gap-2 rounded-lg"
+                className="flex justify-center items-center w-24 p-1 bg-green-400 mt-3 gap-2 rounded-lg"
               >
                 <div>
                   <MdModeEdit />
                 </div>
-                <div>Güncelle</div>
+                <div>Update</div>
               </button>
             </div>
           </div>
@@ -463,14 +461,14 @@ function Animal() {
           <table className=" rounded-lg  py-5 bg-slate-50  w-11/12 mx-auto mt-8 table-fixed overflow-hidden">
             <thead className=" border h-14 font-extrabold text-slate-400  text-xl ">
               <tr className="">
-                <th className=" border w-2/12">Hayvan Adı</th>
-                <th className=" border w-2/12">Hayvan Sahibi</th>
-                <th className="border w-2/12">Tür</th>
-                <th className="border w-2/12">Cins</th>
-                <th className="border w-2/12">Cinsiyet</th>
-                <th className="border w-2/12">Renk</th>
-                <th className="border w-2/12">Doğum Tarihi</th>
-                <th className="border w-3/12">Sil / Düzenle</th>
+                <th className=" border w-2/12">Name</th>
+                <th className=" border w-2/12">Owner</th>
+                <th className="border w-2/12">Species</th>
+                <th className="border w-2/12">Breed</th>
+                <th className="border w-2/12">Gender</th>
+                <th className="border w-2/12">Color</th>
+                <th className="border w-2/12">Birth Date</th>
+                <th className="border w-3/12">Delete / Edit</th>
               </tr>
             </thead>
 
@@ -496,7 +494,7 @@ function Animal() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateAnimalBtn}
@@ -504,7 +502,7 @@ function Animal() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>
@@ -534,7 +532,7 @@ function Animal() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateAnimalBtn}
@@ -542,7 +540,7 @@ function Animal() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>
@@ -572,7 +570,7 @@ function Animal() {
                           className="flex justify-center items-center text-center text-red-500 rounded-md text-xl px-2 bg-red-200 cursor-pointer"
                         >
                           <MdDelete />
-                          Sil
+                          Delete
                         </div>
                         <div
                           onClick={handleUpdateAnimalBtn}
@@ -580,7 +578,7 @@ function Animal() {
                           className="flex justify-center items-center text-center cursor-pointer text-blue-400 rounded-md px-2 text-xl bg-blue-100"
                         >
                           <MdModeEdit />
-                          Düzenle
+                          Edit
                         </div>
                       </td>
                     </tr>
