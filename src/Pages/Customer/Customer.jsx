@@ -31,7 +31,7 @@ function Customer() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/customers")
       .then((res) => setCustomer(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewCustomerInputChange = (e) => {
@@ -48,7 +48,7 @@ function Customer() {
         import.meta.env.VITE_VET_API_BASEURL + "/api/v1/customers",
         newCustomer
       )
-      .then(setUpdate(false))
+      .then(()=>setUpdate(true))
       .then(
         setNewCustomer({
           ...initState,
@@ -75,7 +75,7 @@ function Customer() {
     axios
       .delete(import.meta.env.VITE_VET_API_BASEURL + `/api/v1/customers/${id}`)
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlert2(true);
         setTimeout(() => {
           setAlert2(false);
@@ -95,7 +95,7 @@ function Customer() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/customers/${id}`,
         updateCustomer
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(() => {
         setUpdateCustomer({
           ...initState,

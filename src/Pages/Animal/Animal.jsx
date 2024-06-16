@@ -40,11 +40,11 @@ function Animal() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/animals")
       .then((res) => setAnimal(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/customers")
       .then((res) => setCustomer(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewAnimaInputChange = (e) => {
@@ -58,7 +58,7 @@ function Animal() {
   const handleAddNewAnimal = () => {
     axios
       .post(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/animals", newAnimal)
-      .then(setUpdate(false))
+      .then(() => setUpdate(true))
       .then(
         setNewAnimal({
           name: "",
@@ -92,14 +92,13 @@ function Animal() {
     axios
       .delete(import.meta.env.VITE_VET_API_BASEURL + `/api/v1/animals/${id}`)
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlert2(true);
         setTimeout(() => {
           setAlert2(false);
         }, 3000);
       });
   };
-
 
   const handleUpdateAnimalBtn = (e) => {
     const index = e.target.id;
@@ -119,7 +118,7 @@ function Animal() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/animals/${id}`,
         updateAnimal
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(() => {
         setUpdateAnimal({
           name: "",
@@ -144,7 +143,6 @@ function Animal() {
       customer: newcustomer,
     }));
   };
-
 
   const handleAnimalNameSearch = () => {
     axios
@@ -190,7 +188,9 @@ function Animal() {
 
   return (
     <div>
-      <h1 className="text-center text-white my-5 text-2xl">Animal Management</h1>
+      <h1 className="text-center text-white my-5 text-2xl">
+        Animal Management
+      </h1>
       <div>
         {alert1 && (
           <h1 className="w-56 text-center rounded-md py-3 absolute top-28 left-6 bg-green-500 text-white text-xl">
@@ -331,7 +331,7 @@ function Animal() {
               <label htmlFor="">
                 <h2 className="text-white">Customer</h2>
                 <select
-                className="rounded-lg px-4 py-1"
+                  className="rounded-lg px-4 py-1"
                   name="customer"
                   id="customerId"
                   value={newAnimal?.customer?.id || ""}
@@ -430,7 +430,7 @@ function Animal() {
               <label htmlFor="">
                 <h2 className="text-white">Customer</h2>
                 <select
-                className="rounded-lg px-4 py-1"
+                  className="rounded-lg px-4 py-1"
                   name="customer"
                   id="customerId"
                   value={updateAnimal?.customer?.id || ""}

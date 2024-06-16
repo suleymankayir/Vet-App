@@ -34,11 +34,11 @@ function Doctor() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/doctors")
       .then((res) => setDoctor(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/available-dates")
       .then((res) => setAvailableDate(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewDoctorInputChange = (e) => {
@@ -52,7 +52,7 @@ function Doctor() {
   const handleAddNewDoctor = () => {
     axios
       .post(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/doctors", newDoctor)
-      .then(setUpdate(false))
+      .then(()=>setUpdate(true))
       .then(
         setNewDoctor({
           name: "",
@@ -77,7 +77,7 @@ function Doctor() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/doctors/${id}`,
         updateDoctor
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(() => {
         setUpdateDoctor({
           ...doctorInitState,
@@ -103,7 +103,7 @@ function Doctor() {
     axios
       .delete(import.meta.env.VITE_VET_API_BASEURL + `/api/v1/doctors/${id}`)
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlert2(true);
         setTimeout(() => {
           setAlert2(false);
@@ -148,7 +148,7 @@ function Doctor() {
         import.meta.env.VITE_VET_API_BASEURL + "/api/v1/available-dates",
         newAvailableDate
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(() => setNewAvailableDate({ ...initState }))
       .then(() => setAlertDate1(true))
       .then(() =>
@@ -165,7 +165,7 @@ function Doctor() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/available-dates/${id}`
       )
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlertDate2(true);
         setTimeout(() => {
           setAlertDate2(false);

@@ -29,11 +29,11 @@ function Report() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/reports")
       .then((res) => setReport(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/appointments")
       .then((res) => setAppointment(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewReportInputChange = (e) => {
@@ -56,7 +56,7 @@ function Report() {
   const handleNewReport = () => {
     axios
       .post(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/reports", newReport)
-      .then(setUpdate(false))
+      .then(()=>setUpdate(true))
       .then(
         setNewReport({
           ...initState,
@@ -76,7 +76,7 @@ function Report() {
     axios
       .delete(import.meta.env.VITE_VET_API_BASEURL + `/api/v1/reports/${id}`)
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlert2(true);
         setTimeout(() => {
           setAlert2(false);
@@ -112,7 +112,7 @@ function Report() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/reports/${id}`,
         updateReport
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(() => {
         setUpdateReport({
           ...initState,

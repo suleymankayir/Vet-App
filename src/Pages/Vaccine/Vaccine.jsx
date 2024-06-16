@@ -14,7 +14,7 @@ function Vaccine() {
   const [vaccine, setVaccine] = useState([]);
   const [animal, setAnimal] = useState([]);
   const [report, setReport] = useState([]);
-  const [update, setUpdate] = useState([]);
+  const [update, setUpdate] = useState(false);
   const [newVaccine, setNewVaccine] = useState({
     ...initState,
   });
@@ -26,15 +26,15 @@ function Vaccine() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/vaccinations")
       .then((res) => setVaccine(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/animals")
       .then((res) => setAnimal(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/reports")
       .then((res) => setReport(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewVaccineInputChange = (e) => {
@@ -59,7 +59,7 @@ function Vaccine() {
         import.meta.env.VITE_VET_API_BASEURL + "/api/v1/vaccinations",
         newVaccine
       )
-      .then(setUpdate(false))
+      .then(()=>setUpdate(true))
       .then(
         setNewVaccine({
           ...initState,
@@ -82,7 +82,7 @@ function Vaccine() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/vaccinations/${id}`
       )
       .then(() => {
-        setUpdate(false);
+        setUpdate(true);
         setAlert2(true);
         setTimeout(() => {
           setAlert2(false);

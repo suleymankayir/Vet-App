@@ -25,15 +25,15 @@ function Appointment() {
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/appointments")
       .then((res) => setAppointment(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/doctors")
       .then((res) => setDoctor(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
     axios
       .get(import.meta.env.VITE_VET_API_BASEURL + "/api/v1/animals")
       .then((res) => setAnimal(res.data.content))
-      .then(() => setUpdate(true));
+      .then(() => setUpdate(false));
   }, [update]);
 
   const handleNewAppointmentDateChange = (e) => {
@@ -68,7 +68,7 @@ function Appointment() {
         import.meta.env.VITE_VET_API_BASEURL + "/api/v1/appointments",
         newAppointment
       )
-      .then(setUpdate(false))
+      .then(()=>setUpdate(true))
       .then(
         setNewAppointment({
           appointmentDate: "",
@@ -118,7 +118,7 @@ function Appointment() {
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/appointments/${id}`,
         updateAppointment
       )
-      .then(() => setUpdate(false))
+      .then(() => setUpdate(true))
       .then(
         setUpdateAppointment({
           appointmentDate: "",
@@ -137,7 +137,7 @@ function Appointment() {
       .delete(
         import.meta.env.VITE_VET_API_BASEURL + `/api/v1/appointments/${id}`
       )
-      .then(() => setUpdate(false));
+      .then(() => setUpdate(true));
   };
 
   
